@@ -4,10 +4,12 @@
   "description": "This is a website for Ristorante Con Fusion",
   "main": "index.html",
   "scripts": {
-    "start": "npm run lite",
+    "start": "yarn watch:all",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server",
-    "scss": "node-sass -o css/ css/"
+    "scss": "node-sass -o css/ css/",
+    "watch:scss": "onchange \"css/*.scss\" -- yarn scss",
+    "watch:all": "parallelshell \"yarn watch:scss\" \"yarn lite\""
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +23,8 @@
     "jquery": "3.3.1",
     "less": "2.7.2",
     "node-sass": "^4.14.1",
+    "onchange": "3.3.0",
+    "parallelshell": "3.0.2",
     "popper.js": "1.12.9"
   }
 }
